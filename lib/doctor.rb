@@ -1,3 +1,4 @@
+require 'pry'
 class Doctor
   attr_accessor :name
   
@@ -12,9 +13,9 @@ class Doctor
     @@all 
   end 
   
-  def new_appointment(name, patient)
-    appointment = Appointment.new(name,self,patient)
-  end 
+  def new_appointment(date, patient)
+    appointment = Appointment.new(patient, date, self)
+  end
   
   def appointments 
     Appointment.all.select{|a| a.doctor == self }
